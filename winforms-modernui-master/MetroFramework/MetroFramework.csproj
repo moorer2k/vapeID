@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFrameworks>netcoreapp3.1;net2.0;netcoreapp3.0</TargetFrameworks>
+    <IsTestProject>false</IsTestProject>
+    <IsPackable>true</IsPackable>
+    <RootNamespace>MetroFramework</RootNamespace>
+    <AssemblyName>MetroFramework</AssemblyName>
+    <Authors>Peter Rekdal Sunde / Sven Walters</Authors>
+    <Version>2.0.0</Version>
+    <UseWindowsForms>true</UseWindowsForms>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageId>ModernUI</PackageId>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/peters/winforms-modernui</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryBranch>master</RepositoryBranch>
+    <Description>
+      Brings the new Modern UI alias Metro UI of Windows 8 to .NET Windows Forms applications.
+
+      Supported platforms:
+
+      Windows XP SP1/SP2/SP3 (.NET FULL FRAMEWORK ONLY)
+      Windows Vista (.NET FULL FRAMEWORK ONLY)
+      Windows 7 (.NET CORE)
+      Windows 8 (.NET CORE)
+      Windows 10 (.NET CORE)
+    </Description>
+  </PropertyGroup>
+  <ItemGroup Condition="$(IsNetCoreApp)">
+    <PackageReference Include="System.Drawing.Common" Version="4.7.0" />
+  </ItemGroup>
+  <ItemGroup Condition="$(IsNetFullFramework)">
+    <Reference Include="System" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+</Project>
